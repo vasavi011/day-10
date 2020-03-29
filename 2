@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+int highestProfitYear(int revenue[],int size);
+int main(){
+	int n=0,input[20]={0},i,highest;
+	scanf("%d",&n);
+	if(n<0){
+		printf("Invalid array size");
+		getchar();
+		getchar();
+		exit(0);
+	}
+	for(i=0;i<n;i++){
+	scanf("%d",&input[i]);
+	if(input[i]<0){
+		printf("Invalid input");
+		getchar();
+		getchar();
+		exit(0);
+	}
+	}
+	
+	highest = highestProfitYear(input,n);
+	printf("%d",highest);
+	getchar();
+	getchar();
+	return 0;
+}
+int highestProfitYear(int revenue[],int size){
+	int i,j,k=0,highest=0,max=0;
+	for(i=1;i<size;i=i+2){
+		if(revenue[i]>max){
+			max=revenue[i];
+			highest=revenue[i-1];
+		}
+	}
+
+	return highest;
+}
